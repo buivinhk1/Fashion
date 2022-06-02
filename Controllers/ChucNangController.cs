@@ -19,6 +19,7 @@ namespace Fashion.Controllers
         QLBanQuanAoDataContext context = new QLBanQuanAoDataContext();
 
         //------------------------------ Sản Phẩm ---------------------------------------vinh
+        //vinh
         public ActionResult DSsanpham(int? page)
         {
             if (Session["TKAdmin"] == null)
