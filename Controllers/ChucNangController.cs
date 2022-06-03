@@ -327,7 +327,7 @@ namespace Fashion.Controllers
                 }
                 context.Loaisanphams.DeleteOnSubmit(ncc);
                 context.SubmitChanges();
-                return RedirectToAction("DSNCC");
+                return RedirectToAction("DSLSP");
             }
         }
 
