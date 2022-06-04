@@ -17,6 +17,7 @@ namespace Fashion.Models
         public string anhbia { set; get; }
         public int soluong { set; get; }
         public double thanhtien { get { return dongia * soluong; } }
+        public string diachi { set; get; }
 
         public GioHang(int MaSP)
         {

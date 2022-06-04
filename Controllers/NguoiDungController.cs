@@ -42,21 +42,6 @@ namespace Fashion.Controllers
                 }
                 else
                 {
-                    //MD5 md5 = new MD5CryptoServiceProvider();
-
-                    //md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(ConfirmMK));
-
-                    //byte[] bytedata = md5.Hash;
-
-                    //StringBuilder builder = new StringBuilder();
-                    //for (int i = 0; i < bytedata.Length; i++)
-                    //{
-
-                    //    builder.Append(bytedata[i].ToString("x2"));
-                    //}
-
-                    //string MaHoa = builder.ToString();
-
                     kh.HoTen = hoten;
                     kh.Taikhoan = TK;
                     kh.Matkhau = ConfirmMK;

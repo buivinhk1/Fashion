@@ -107,39 +107,56 @@
 		@{
 			KHACHHANG kh = (KHACHHANG)Session["Taikhoan"];
 		}
-		<table align="center">
-			@using (Html.BeginForm())
-			{
-				@Html.ValidationSummary(true)
-				<tr style="height:40px">
-					<td>Khách Hàng</td>
-					<td style="font-weight:bold">@kh.HoTen</td>
-				</tr>
-				<tr style="height:40px">
-					<td>Địa Chỉ</td>
-					<td style="font-weight:bold">@kh.DiachiKH</td>
-				</tr>
-				<tr style="height:40px">
-					<td>Số Điện Thoại</td>
-					<td style="font-weight:bold">@kh.DienthoaiKH</td>
-				</tr>
-				<tr style="height:40px">
-					<td>Ngày Đặt</td>
-					<td style="font-weight:bold">@DateTime.Now.ToShortDateString()</td>
-				</tr>
-				/*<tr style="height:40px">
-					<td>Ngày Giao Hàng</td>
-					<td>    
-						<input required type="date" name="NgayGiao" />
-					</td>
-				</tr>*/
-				<tr style="height:40px;">
-					
-					<td colspan="9" style="text-align: right; font-weight: bold">
-						<input type="submit"style="background-color: #cecece; border-radius: 10px; border-color: #808080;padding:5px; color: black; font-weight: bold; " value="Đồng Ý Đặt Hàng"  /> </td>
-                </tr>				
-			}
-		</table>
+    <table align="center">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+            <tr style="height:40px">
+                <td>Khách Hàng</td>
+                <td style="font-weight:bold">@kh.HoTen</td>
+            </tr>
+            <tr style="height:40px">
+                <td>Địa Chỉ</td>
+                <td style="font-weight:bold">@kh.DiachiKH</td>
+            </tr>
+            <tr style="height:40px">
+                <td>Số Điện Thoại</td>
+                <td style="font-weight:bold">@kh.DienthoaiKH</td>
+            </tr>
+            <tr style="height:40px">
+                <td>Ngày Đặt</td>
+                <td style="font-weight:bold">@DateTime.Now.ToShortDateString()</td>
+            </tr>
+            <tr style="height:40px">
+                <td>Điện Chỉ Nhận Hàng</td>
+                @*<td style="font-weight:bold"><input /></td>*@
+                @*<div class="col-md-10">
+                    @Html.EditorFor(model => model.diachi, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.diachi, "", new { @class = "text-danger" })
+                </div>*@
+            <td>
+                <div class="pom-agile">
+                    <input placeholder="Địa Chỉ" name="DiaChi" class="pass" type="text" required="">
+                    <span class="icon2"><i aria-hidden="true"></i></span>
+                </div>
+            </td>
+                
+            </tr>
+            /*<tr style="height:40px">
+                <td>Ngày Giao Hàng</td>
+                <td>
+                    <input required type="date" name="NgayGiao" />
+                </td>
+            </tr>*/
+            <tr style="height:40px;">
+
+                <td colspan="9" style="text-align: right; font-weight: bold">
+                    <input type="submit" style="background-color: #cecece; border-radius: 10px; border-color: #808080;padding:5px; color: black; font-weight: bold; " value="Đồng Ý Đặt Hàng" />
+                </td>
+            </tr>
+
+        }
+    </table>
 		
 	</div>
 }

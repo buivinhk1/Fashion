@@ -27,30 +27,36 @@
         <th>
             @Html.DisplayName("Thành Tiền")
         </th>
+        <th>
+            @Html.DisplayName("Địa Chỉ")
+        </th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DONDATHANG.KHACHHANG.HoTen)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SANPHAM.TenSP)
-            </td>
-            <td>
-                <img src="~/Sản Phẩm/@Html.DisplayFor(modelItem => item.SANPHAM.Anhbia)" alt="Alternate Text" />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Soluong)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Dongia)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ThanhTien)
-            </td>
-        </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.DONDATHANG.KHACHHANG.HoTen)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SANPHAM.TenSP)
+    </td>
+    <td>
+        <img src="~/Sản Phẩm/@Html.DisplayFor(modelItem => item.SANPHAM.Anhbia)" alt="Alternate Text" />
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Soluong)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Dongia)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ThanhTien)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DONDATHANG.DiaChi)
+    </td>
+</tr>
     }
 
 </table>

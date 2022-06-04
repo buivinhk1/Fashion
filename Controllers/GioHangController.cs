@@ -128,6 +128,7 @@ namespace Fashion.Controllers
         [HttpGet]
         public ActionResult DatHang()
         {
+            
             if (Session["Taikhoan"] == null || Session["Taikhoan"].ToString() == "")
             {
                 return RedirectToAction("Login", "NguoiDung");
@@ -146,11 +147,12 @@ namespace Fashion.Controllers
         public ActionResult DatHang(FormCollection collection)
         {
             DONDATHANG dONDATHANG = new DONDATHANG();
+            CHITIETDONTHANG CTDH = new CHITIETDONTHANG();
             KHACHHANG kh = (KHACHHANG)Session["Taikhoan"];
             List<GioHang> gioHangs = LayGioHang();
             dONDATHANG.MaKH = kh.MaKH;
             dONDATHANG.Ngaydat = DateTime.Now;
-            var ngaygiao = String.Format("{0:MM/dd/yyyy}", collection["NgayGiao"]);
+            string DiaChi = collection["DiaChi"];
             //dONDATHANG.Ngaygiao = DateTime.Parse(ngaygiao);
             dONDATHANG.TongTien = Decimal.Parse(TongTien().ToString());
             dONDATHANG.Tinhtranggiaohang = false;
@@ -160,11 +162,13 @@ namespace Fashion.Controllers
             foreach (var item in gioHangs)
             {
                 CHITIETDONTHANG CT = new CHITIETDONTHANG();
+                //DONDATHANG dONDATHANG = new DONDATHANG();
                 CT.MaDonHang = dONDATHANG.MaDonHang;
                 CT.MaSP = item.masp;
                 CT.Soluong = item.soluong;
                 CT.Dongia = (decimal)item.dongia;
                 CT.ThanhTien = (decimal)item.thanhtien;
+                dONDATHANG.DiaChi = DiaChi;
                 data.CHITIETDONTHANGs.InsertOnSubmit(CT);
             }
             data.SubmitChanges();
@@ -175,7 +179,11 @@ namespace Fashion.Controllers
                             "Mã đơn hàng: " + dONDATHANG.MaDonHang + "\n" +
                             "Ngày đặt hàng: " + String.Format("{0:dd/MM/yyyy}", dONDATHANG.Ngaydat) + "\n" +
                             //"Ngày giao: " + String.Format("{0:dd/MM/yyyy}", dONDATHANG.Ngaygiao) + "\n" +
-                            "Tổng tiền: " + String.Format("{0:0,0}",dONDATHANG.TongTien)+" vnđ";
+                            "Tổng tiền: " + String.Format("{0:0,0}", dONDATHANG.TongTien) + " vnđ" + "\n" +
+                            "Dia chi: " + dONDATHANG.DiaChi + "\n";
+
+
+
             SendEmail(kh.Email,subject,mess);
 
 

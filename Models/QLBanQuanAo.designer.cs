@@ -545,6 +545,8 @@ namespace Fashion.Models
 		
 		private System.Nullable<decimal> _TongTien;
 		
+		private string _DiaChi;
+		
 		private EntitySet<CHITIETDONTHANG> _CHITIETDONTHANGs;
 		
 		private EntityRef<KHACHHANG> _KHACHHANG;
@@ -567,6 +569,8 @@ namespace Fashion.Models
     partial void OnMaKHChanged();
     partial void OnTongTienChanging(System.Nullable<decimal> value);
     partial void OnTongTienChanged();
+    partial void OnDiaChiChanging(string value);
+    partial void OnDiaChiChanged();
     #endregion
 		
 		public DONDATHANG()
@@ -716,6 +720,26 @@ namespace Fashion.Models
 					this._TongTien = value;
 					this.SendPropertyChanged("TongTien");
 					this.OnTongTienChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiaChi", DbType="NVarChar(200)")]
+		public string DiaChi
+		{
+			get
+			{
+				return this._DiaChi;
+			}
+			set
+			{
+				if ((this._DiaChi != value))
+				{
+					this.OnDiaChiChanging(value);
+					this.SendPropertyChanging();
+					this._DiaChi = value;
+					this.SendPropertyChanged("DiaChi");
+					this.OnDiaChiChanged();
 				}
 			}
 		}
