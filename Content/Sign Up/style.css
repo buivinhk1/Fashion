@@ -95,7 +95,7 @@ img {
 }
 /*end reset*/
 body {
-    background: url(../images/1.jpg)no-repeat center top;
+    
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -113,9 +113,9 @@ body {
 
     .header-w3l h1 {
         font-size: 3em;
-        color: white;
+        color: black;
         letter-spacing: 8px;
-        font-weight: 500;
+        font-weight: bold ;
         font-family: 'Dosis', sans-serif;
         text-transform: uppercase;
         text-shadow: 5px 3px 5px #101010;
@@ -125,10 +125,15 @@ body {
 /*--main--*/
 .wthree-pro h2 {
     font-size: 1.2em;
-    color: #fff;
+    color: black;
     letter-spacing: 4px;
-    margin-bottom: 1.5em;
     text-transform: uppercase;
+    font-weight:bold;
+    font-size:25px;
+    background-color:#fff8cd;
+    border-radius:16px;
+    padding:10px;
+    margin-bottom:20px;
 }
 
 .sub-main-w3 input[type="email"], .sub-main-w3 input[type="password"], .sub-main-w3 input[type="text"], .sub-main-w3 input[type="date"] {
@@ -139,7 +144,7 @@ body {
     margin-bottom: 0.3em;
     background: rgba(255, 255, 255, 0.85);
     width: 82%;
-    color: #000;
+    color: black;
     border-radius: 30px;
     font-weight: 400;
     font-family: 'Open Sans', sans-serif;
@@ -149,11 +154,16 @@ body {
 .sub-main-w3 {
     width: 26%;
     margin: 10em auto 12em;
+    border: 2px solid #686940;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 5px 3px 5px #101010;
+    background-color: #d8d8d8;
 }
 
 .sub-w3l h6 a {
     font-size: .9em;
-    color: #fff;
+    color: #686940;
     letter-spacing: 1px;
     text-align: right;
     display: inherit;
@@ -191,8 +201,8 @@ span.icon2 {
 }
 
 .submit {
-    color: white;
-    background: #ea2858;
+    color: black;
+    background: #fffee7;
     border: none;
     padding: .7em 20px;
     outline: none;
@@ -200,7 +210,7 @@ span.icon2 {
     font-size: 1em;
     cursor: pointer;
     letter-spacing: 1px;
-    font-weight: 400;
+    font-weight: bold;
     font-family: 'Open Sans', sans-serif;
     transition: 0.5s all;
     -webkit-transition: 0.5s all;
@@ -211,7 +221,7 @@ span.icon2 {
 }
 
     .submit:hover {
-        background: #fff;
+        background: #a2a47e;
         color: black;
         transition: 0.5s all;
         -webkit-transition: 0.5s all;
@@ -224,16 +234,16 @@ span.icon2 {
 /*--footer--*/
 .footer p {
     font-size: .9em;
-    color: white;
+    color: black;
     letter-spacing: 2px;
 }
 
     .footer p a {
-        color: #fff;
+        color: black;
     }
 
         .footer p a:hover {
-            color: #ea2858;
+            color: #686940;
         }
 /*--//footer--*/
 

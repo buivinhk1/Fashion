@@ -24,17 +24,15 @@
 				.content-giohang {
 
 					width: 100%;
-					margin-top: 120px;
+
 					font-size: 16px;
 				}
 
 
-				table {
-
-					
+				table {					
 					box-shadow: 0px 15px 25px 5px rgb(0 0 0 / 25%);
-					border: 0.5px;
-					border-radius: 15px;
+					border: 0.5px;	
+					margin:0 auto  ;
 				}
 
 				td {
@@ -42,12 +40,16 @@
 					border: solid 2px;
 				}
 
-				tr {
-					background-color:aliceblue;
+				tr:first-child {
+					background-color:#cecece;
 				}
 
 					tr btn {
 						margin: 10px 10px;
+
+					}
+					tr btn:hover{
+						background-color:#79794e;
 					}
 				media (max-width: 1024px) {
 
@@ -63,7 +65,7 @@
 			</style>
 	
 <div class="content-giohang">
-	<h1 style="text-align:center">Giỏ hàng</h1>
+	<h1 style="text-align:center;margin:0 auto;" >Giỏ hàng</h1>
 	<table align="center" border="1">
         <tr style="text-align: center; font-weight: bold;">
             <td>Mã Sản Phẩm</td>
@@ -88,8 +90,8 @@
 					<td><input type="number" min="1" name="Soluong" value="@item.soluong" style="background-color:white" /></td>
 					<td>@String.Format("{0:0,0 }", item.dongia) vnđ</td>
 					<td>@String.Format("{0:0,0 }", item.thanhtien) vnđ</td>
-					<td><a class="btn btn-danger" href="@Url.Action("XoaGioHang","GioHang", new {id = @item.masp})">Xóa</a></td>
-					<td><input type="submit" value="Cập nhật"/></td>
+					<td><a class="btn btn-danger" style="background-color: #cecece; border-radius: 10px; font-weight: bold; border-color: #808080; color: black; " href="@Url.Action("XoaGioHang","GioHang", new {id = @item.masp})">Xóa</a></td>
+					<td><input type="submit" style="background-color: #cecece; border-radius: 10px; border-color: #808080; color: black; font-weight: bold; " class ="btn btn-warning"value="Cập nhật"/></td>
 
 				}
 
@@ -101,17 +103,18 @@
 			<td></td>
 			<td>Số Lượng: @ViewBag.TongSoLuong</td>
 			<td colspan="3"><strong>Tổng Tiền: <p style="color:red; display:inline-block">@String.Format("{0:0,0 }", ViewBag.TongTien) vnđ</p></strong>  </td>
+			<td></td>
 		</tr>
 		<tr style="text-align:right; font-weight:bold;">
 
 			<td colspan="9">
-				<a style=" background-color:red;color:white" href="@Url.Action("DatHang","GioHang")" class="btn btn-default">Đặt Hàng</a>
-				<a style="background-color:white;color:black" class ="btn btn-warning" href="@Url.Action("RemoveAll","GioHang")">Xóa Tất Cả</a>
+				<a style="background-color: #cecece; border-radius: 10px; border-color: #808080; color: black; font-weight: bold;" href="@Url.Action("DatHang","GioHang")" class="btn btn-default">Đặt Hàng</a>
+				<a style="background-color: #cecece; border-radius: 10px; border-color: #808080; color: black; font-weight: bold; " class ="btn btn-warning" href="@Url.Action("RemoveAll","GioHang")">Xóa Tất Cả</a>
 			</td>
 		</tr>
 
 	</table>
 </div>
 
-}
+
 

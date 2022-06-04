@@ -5,7 +5,7 @@
 
 body{
     font-size: 16px;
-    background-color:#c0bc96;
+    background-color:#e5e2d1;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -31,10 +31,11 @@ body{
    text-align: center;
     font-size: 3em;
     letter-spacing: 8px;
-    font-weight: 500;
+    font-weight: bold;
     font-family: 'Dosis', sans-serif;
     text-transform: uppercase;
     text-shadow: 5px 3px 5px #101010;
+    color:black;
 }
 
 .contact-box{
@@ -85,6 +86,7 @@ row{
 .right-top p{
     margin-right: 20px;
     padding-top: 10px ;
+    color:black
 }
 
 .clear{
