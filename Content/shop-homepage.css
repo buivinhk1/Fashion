@@ -193,21 +193,13 @@ nav h3 {
     position: relative;
     width: 320px;
     height: 420px;
-    background: #21209C;
+    background: #e6e6e6;
     border-radius: 20px;
     overflow: hidden;
+    box-shadow: 10px 5px #ebebeb;
 }
 
-    .thumbnail::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        width: 100%;
-        height: 100%;
-        background: #FDB827;
-        transform: skewY(345deg);
-        transition: 0.5s;
-    }
+    
 
     .thumbnail:hover::before {
         top: -75%;
@@ -277,7 +269,7 @@ nav h3 {
         margin-top: 0px;
         color: aliceblue;
         text-decoration: none;
-        background: red;
+        background: #938f63;
         border-radius: 30px;
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -298,7 +290,7 @@ nav h3 {
 
 ::-webkit-scrollbar-thumb {
     border-radius: 30px;
-    background: -webkit-gradient(linear,left top,left bottom,from(#ff8a00),to(#da1b60));
+    background: -webkit-gradient(linear,left top,left bottom,from(#f1f19c),to(rgba(255, 255, 255, 0.877)));
     box-shadow: inset 2px 2px 2px rgba(255,255,255,0.25), inset -2px -2px -2px rgba(0,0,0,0.25);
 }
 
