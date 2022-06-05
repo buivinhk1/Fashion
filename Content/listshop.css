@@ -63,9 +63,7 @@ a {
     color: #d17581;
 }
 
-.thumbnail {
-    padding: 0;
-}
+
 
 .thumbnail .caption-full {
     padding: 9px;
@@ -75,17 +73,15 @@ a {
 .thumbnail {
     position: relative;
     height: 420px;
-    background: #21209C;
+    background: #e6e6e6;
     border-radius: 20px;
     overflow: hidden;
+    padding: 0;
 }
 
   
 
-.thumbnail:hover::before{
-    top: -70%;
-    transform: skewY(390deg);
-}
+
 
 .thumbnail::after{
     content: 'hello';
@@ -142,23 +138,27 @@ a {
     letter-spacing: 1px;
 }
 
-.thumbnail .caption .buy
-{
-    position: relative;
-    top: 200px;
-    opacity: 0;
-    padding: 8px 30px;
-    margin-top: 0px;
-    color: aliceblue;
-    text-decoration: none;
-    background: blue;
-    border-radius: 30px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: 0.5s;
-    font-weight: bold;
-}
-
+    .thumbnail .caption .buy {
+        position: relative;
+        top: 200px;
+        opacity: 0;
+        margin: 0 auto;
+        padding: 8px 30px;
+        margin-top: 0px;
+        color: aliceblue;
+        text-decoration: none;
+        background: #938f63;
+        border-radius: 30px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: 0.5s;
+        font-weight: bold;
+    }
+        .thumbnail .caption .buy:hover {
+            background-color: #fcf5c7;
+            color: black;
+            font-weight: bold;
+        }
 .thumbnail:hover .caption .buy{
     top:  0 ;
     opacity: 1;

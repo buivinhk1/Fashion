@@ -346,6 +346,7 @@
     <Content Include="Views\ChucNang\SuaKH.cshtml" />
     <Content Include="Views\ChucNang\XoaKH.cshtml" />
     <Content Include="Views\ChucNang\XoaGopY.cshtml" />
+    <Content Include="Views\ChucNang\XoaChiTietDonDatHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

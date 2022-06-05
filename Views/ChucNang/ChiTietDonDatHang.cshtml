@@ -56,13 +56,19 @@
     <td>
         @Html.DisplayFor(modelItem => item.DONDATHANG.DiaChi)
     </td>
+    <td>
+        <a href="@Url.Action("XoaChiTietDonDatHang","ChucNang", new { id = item.MaDonHang })">Xoá</a>
+    </td>
 </tr>
     }
 
 </table>
 <div class="space" style="display:flex;justify-content:space-around">
     <a class="return" href="@Url.Action("DonDatHang","ChucNang")">TRỞ VỀ</a>
-    <a class="return" href="@Url.Action("XoaChiTietDonDatHang","ChucNang")">Xoá</a>
+    @*@Html.ActionLink("Xoa chi tiet don dat hang","XoaTatCaChiTiet")*@
+    @*<a class="return" href="@Url.Action("XoaDonDatHang","ChucNang")">Xoá</a>*@
+
+
 </div>
 <style>
     table {
@@ -72,8 +78,8 @@
 
     th {
         height: 50px;
-        background: #ba68c8;
-        color: #fafafa;
+        background: #fbffdf;
+        color: black;
         text-transform: uppercase;
     }
 
@@ -94,23 +100,27 @@
         margin-right: -100px;
     }
 
-    tr:hover {
-        background-color: #ff006e;
+    tr {
+        color: #777;
+        font-weight: bold;
     }
 
+        tr:hover {
+            background-color: #777;
+            transition: 0.5s ease all;
+            color: white;
+        }
+
     .return {
-        margin-left: 40%;
-        margin-top: 25px;
-        color: white;
-        background: #ea2858;
+        color: black;
+        background: #fffbb6;
         border: none;
-        padding: .7em 100px;
         outline: none;
-        width: 22%;
+        padding: 1% 5% 1% 5%;
         font-size: 1em;
         cursor: pointer;
         letter-spacing: 1px;
-        font-weight: 400;
+        font-weight: bold;
         font-family: 'Open Sans', sans-serif;
         transition: 0.5s all;
         -webkit-transition: 0.5s all;
@@ -121,8 +131,8 @@
     }
 
         .return:hover {
-            color: #ea2858;
-            background: white;
+            color: #ffffd6;
+            background: #5b5c2f;
         }
 
     @@media(max-width: 1024px) {

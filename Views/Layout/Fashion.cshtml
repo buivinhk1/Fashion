@@ -42,24 +42,31 @@
                     float: right;
                     text-align: center;
                     list-style: none;
-                }
-
+                }       
                     .Login a {
                         margin-bottom: 20px;
                         line-height: 40px;
-                        padding-right: 20px;
+                        padding: 3px;
                         text-decoration: none;
                         color: black;
                         display: block;
+                        margin: 10px
                     }
 
                         .Login a:hover {
-                            color: #79803d;
-                            background-color: transparent;
+                            background-color: #2b2b29;
+                            color: white;
+                            border-radius:10px;
+                            transition:0.5s ease all;
                         }
 
                 a {
                     color: black;
+                }
+
+                a:hover{
+                    background-color:#716d3a;
+                    color:white;
                 }
 
                 .footer {
@@ -101,7 +108,7 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top colorr" role="navigation">
-        <div class="container">
+        <div class="container" >
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -115,12 +122,12 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div style=" font-size: 18px; font-weight: bold;" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav na">
                     <li>
-                        <a href="@Url.Action("AllSP","Fashion")">Loại Sản Phẩm</a>
+                        <a href="@Url.Action("AllSP","Fashion")" style="color:black">Loại Sản Phẩm</a>
                     </li>
                     <li>
-                        <a href="@Url.Action("Contact","Fashion")">Liên Hệ</a>
+                        <a href="@Url.Action("Contact","Fashion")"style="color:black">Liên Hệ</a>
                     </li>
 
                 </ul>
@@ -154,7 +161,7 @@
         <!-- New Product -->
         <div class="row">
             @RenderSection("Table", false)
-            <div class="col-md-9">
+            <div class="col-md-9"style="margin-top:2%">
                 <div>
                     @RenderBody()
                 </div>
