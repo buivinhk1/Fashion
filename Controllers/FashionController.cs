@@ -17,6 +17,7 @@ namespace Fashion.Controllers
         {     
             return context.SANPHAMs.OrderByDescending(a => a.MaSP).Take(count).ToList();
         }
+        //
         public ActionResult Index(int ? page)
         {
             int pagesize = 5;
