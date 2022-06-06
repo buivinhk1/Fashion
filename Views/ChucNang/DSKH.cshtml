@@ -39,6 +39,7 @@
         <th>
             @Html.DisplayName("Ngày Sinh")
         </th>
+        <th></th>
     </tr>
 
     @foreach (var item in Model)
@@ -99,6 +100,7 @@
             margin-bottom: 10px;
             margin-left: 20px;
             height: 30px;
+            font-weight: bold;
         }
 
         .icon {
@@ -158,8 +160,8 @@
 
         th {
             height: 50px;
-            background: #ba68c8;
-            color: #fafafa;
+            background: #fbffdf;
+            color: black;
             text-transform: uppercase;
         }
         
@@ -174,9 +176,17 @@
             padding-bottom: 20px;
         }
 
-        tr:hover {
-            background-color: #ff006e;
+        tr {
+            color: #777;
+            font-weight: bold;
         }
+
+            tr:hover {
+                background-color: #777;
+                transition: 0.5s ease all;
+                color: white;
+            }
+
 
         @@media(max-width: 1024px) {
             .ADD-Btn {

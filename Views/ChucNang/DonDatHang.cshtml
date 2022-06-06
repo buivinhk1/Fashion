@@ -9,7 +9,7 @@
 @using (Html.BeginForm())
 {
     <input style="color:black" type="date" required name="date" />
-    <input style="text-align:center" type="submit" value="Tìm" class="btn btn-default" />
+    <input style="text-align:center;color:black;background-color:#feffcd" type="submit" value="Tìm" class="btn btn-default" />
     <input style="color:black;float:right" type="date" name="date2" />
 }
 <table class="table" border="1">
@@ -156,8 +156,8 @@
 
         th {
             height: 50px;
-            background: #ba68c8;
-            color: #fafafa;
+            background: #fbffdf;
+            color: black;
             text-transform: uppercase;
         }
 
@@ -171,10 +171,18 @@
             padding-top: 15px;
             padding-bottom: 20px;
         }
-
-        tr:hover {
-            background-color: #ff006e;
+        tr {
+            color: #777;
+            font-weight: bold;
         }
+
+            tr:hover {
+                background-color: #777;
+                transition: 0.5s ease all;
+                color: white;
+            }
+
+        
         @@media(max-width:1024px) {
             table {
                 font-size: 10px;

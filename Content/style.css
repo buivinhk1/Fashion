@@ -43,6 +43,7 @@ body {
     height: 475px;
     box-shadow: -15px 0 35px rgba(0, 0, 0, 0.1), 0 -15px 35px rgba(0, 0, 0, 0.1), 0 15px 35px rgba(0, 0, 0, 0.1);
     transition: .5s;
+    border-radius:20px
 }
 
 .gradients {
@@ -51,6 +52,8 @@ body {
     height: 100%;
     left: 0;
     top: 0;
+    background-color:#fffce7!important;
+    border-radius:10px;
 }
 
 .gradient {
@@ -81,25 +84,7 @@ body {
     z-index: -1;
 }
 
-.gradient[color="blue"] {
-    background-image: linear-gradient(45deg, #0136af, #22abfa);
-}
 
-.gradient[color="red"] {
-    background-image: linear-gradient(45deg, #d62926, #ee625f);
-}
-
-.gradient[color="green"] {
-    background-image: linear-gradient(45deg, #11998e, #1ce669);
-}
-
-.gradient[color="orange"] {
-    background-image: linear-gradient(45deg, #fc4a1a, #f7b733);
-}
-
-.gradient[color="black"] {
-    background-image: linear-gradient(45deg, #111, #666);
-}
 
 .logo {
     position: absolute;
@@ -150,6 +135,7 @@ body {
     z-index: 1;
     padding: 35px 40px;
     box-shadow: 15px 0 35px rgba(0, 0, 0, 0.1), 0 -15px 35px rgba(0, 0, 0, 0.1), 0 15px 35px rgba(0, 0, 0, 0.1);
+    border-radius:20px;
 }
 
 .shoeName {
@@ -166,6 +152,7 @@ body {
             font-size: 2rem;
             color: #333;
             line-height: 1;
+            font-weight:bold;
         }
 
         .shoeName div .new {
@@ -293,7 +280,10 @@ body {
     align-items: center;
 }
 .buy-price a{
-    text-decoration:none
+    text-decoration:none;
+    background-color:#948d40;
+    border-radius:10px
+       
 }
 .price {
     color: #333;
@@ -383,6 +373,7 @@ body {
 @media (max-width: 490px) {
     .shoeName div .big {
         font-size: 2rem;
+        font-weight:bold;
     }
 
     .small {

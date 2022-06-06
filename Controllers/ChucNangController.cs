@@ -710,30 +710,33 @@ namespace Fashion.Controllers
             }
             return list;
         }
-        [HttpGet]
+       
+        public ActionResult XoaTatCaChiTiet()
+        {
+            List<CHITIETDONTHANG> list = LayChiTietDonDatHang();
+            list.Clear();
+            return RedirectToAction("DonDatHang");
+        }
         public ActionResult XoaChiTietDonDatHang(int id)
         {
-
             if (Session["TKAdmin"] == null)
             {
                 return RedirectToAction("Index", "Fashion");
             }
             else
             {
-                
-                CHITIETDONTHANG ncc = context.CHITIETDONTHANGs.SingleOrDefault(n => n.IDChitTiet == id);
-                ViewBag.IDChitTiet = ncc.IDChitTiet;
-                if (ncc != null)
+                CHITIETDONTHANG ncc = context.CHITIETDONTHANGs.Where(n => n.MaDonHang == id).FirstOrDefault();
+                ViewBag.MaDonHang = ncc.MaDonHang;
+                if (ncc == null)
                 {
-                    return View(ncc);
+                    Response.StatusCode = 404;
+                    return null;
                 }
-               
-                Response.StatusCode = 404;
-                return null;
+                return View(ncc);
             }
         }
-        [HttpPost]
-        public ActionResult XoaChiTietDonDatHang(int? id)
+        [HttpPost, ActionName("XoaChiTietDonDatHang")]
+        public ActionResult XacNhanXoaChiTietDonDatHang(int id)
         {
             if (Session["TKAdmin"] == null)
             {
@@ -741,12 +744,19 @@ namespace Fashion.Controllers
             }
             else
             {
-                List<CHITIETDONTHANG> lst = LayChiTietDonDatHang();
-                lst.Clear();
-                return RedirectToAction("ChiTietDonDatHang"); 
+                CHITIETDONTHANG ncc = context.CHITIETDONTHANGs.Where(n => n.MaDonHang == id).FirstOrDefault();
+
+                ViewBag.MaDonHang = ncc.MaDonHang;
+                if (ncc == null)
+                {
+                    Response.StatusCode = 404;
+                    return null;
+                }
+                context.CHITIETDONTHANGs.DeleteOnSubmit(ncc);
+                context.SubmitChanges();
+                return RedirectToAction("DonDatHang","ChucNang");
             }
         }
-
         public ActionResult XoaDonDatHang(int id)
         { 
             if (Session["TKAdmin"] == null)
@@ -755,7 +765,8 @@ namespace Fashion.Controllers
             }
             else
             {
-                DONDATHANG ncc = context.DONDATHANGs.SingleOrDefault(n => n.MaDonHang == id);
+                DONDATHANG ncc = context.DONDATHANGs.Where(n => n.MaDonHang == id).FirstOrDefault();
+               // DONDATHANG ncc = context.DONDATHANGs.SingleOrDefault(n => n.MaDonHang == id);
                 ViewBag.MaDonHang = ncc.MaDonHang;
                 if (ncc == null)
                 {
@@ -774,7 +785,8 @@ namespace Fashion.Controllers
             }
             else
             {
-                DONDATHANG ncc = context.DONDATHANGs.SingleOrDefault(n => n.MaDonHang == id);
+                DONDATHANG ncc = context.DONDATHANGs.Where(n => n.MaDonHang == id).FirstOrDefault();
+
                 ViewBag.MaDonHang = ncc.MaDonHang;
                 if (ncc == null)
                 {
@@ -786,6 +798,5 @@ namespace Fashion.Controllers
                 return RedirectToAction("DonDatHang");
             }
         }
-
     }
 }

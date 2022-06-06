@@ -1,6 +1,7 @@
-﻿@model Fashion.Models.DONDATHANG
+﻿@model Fashion.Models.CHITIETDONTHANG
+
 @{
-    ViewBag.Title = "XoaDonDatHang";
+    ViewBag.Title = "XoaChiTietDonDatHang";
     Layout = "~/Views/Layout/Admin/_LayoutAdmin.cshtml";
 }
 
@@ -154,30 +155,44 @@
             padding: 0.7em 14px;
         }
 </style>
-<h1 style="text-align: center; font-size: 28px;">Bạn Thật Sự Chắc Chắn Muốn Xóa Đặt Hàng Này?</h1>
-<hr />
+<h2>XoaChiTietDonDatHang</h2>
+
+<h3>Are you sure you want to delete this?</h3>
 <div>
-    <h2 style="text-align: center; font-size: 26px;">Thông Tin Nhà Cung Cấp</h2>
+    <h4>CHITIETDONTHANG</h4>
+    <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayName("Tên Nhãn Hiệu:   ")
-            @Html.DisplayFor(model => model.KHACHHANG.HoTen)
+            @Html.DisplayNameFor(model => model.Soluong)
         </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soluong)
+        </dd>
+
         <dt>
-            @Html.DisplayName("Ngày Đặt:     ")
-            @String.Format("{0:dd/MM/yyyy}", Model.Ngaydat)
+            @Html.DisplayNameFor(model => model.Dongia)
         </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dongia)
+        </dd>
+
         <dt>
-            @Html.DisplayName("Ngày Giao:   ")
-            @String.Format("{0:dd/MM/yyyy}", Model.Ngaygiao)
+            @Html.DisplayNameFor(model => model.ThanhTien)
         </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThanhTien)
+        </dd>
+
     </dl>
+
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        <div class="form-actions no-color">
-            <div style="text-align:center"><a class="btn" href="@Url.Action("DonDatHang","ChucNang")"> Trở về</a></div>
-            <input type="submit" value="XÓA" class="btn btn-default" />
-        </div>
+<div class="form-actions no-color">
+    <input type="submit" value="Xoá" class="btn btn-default" /> |
+</div>
     }
 </div>

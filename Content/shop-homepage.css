@@ -276,12 +276,16 @@ nav h3 {
         transition: 0.5s;
         font-weight: bold;
     }
-
-    .thumbnail:hover .buy {
-        top: 0;
-        position: relative;
-        opacity: 10;
-    }
+        .thumbnail .buy:hover{
+            background-color:#fcf5c7;
+            color:black;
+            font-weight:bold;
+        }
+        .thumbnail:hover .buy {
+            top: 0;
+            position: relative;
+            opacity: 10;
+        }
 
 /*Design Scroll bar*/
 ::-webkit-scrollbar {

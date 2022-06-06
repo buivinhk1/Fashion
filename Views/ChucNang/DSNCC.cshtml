@@ -65,18 +65,20 @@
         .ADD-Btn {
             margin-left: 40%;
             width: 21%;
-            background: linear-gradient(to right, #1623ae, #090c5e);
+            background: #4e4e22;
             margin-top: 10px;
             margin-bottom: 10px;
             float: left;
+            border-radius:10px;
         }
 
             .ADD-Btn:hover {
-                background: linear-gradient(to left, #1623ae, #1892a5);
+                background: #d5cf8b;
+                color: black;
             }
 
                 .ADD-Btn:hover .icon {
-                    background-color: #090c5e;
+                    background-color: #a1a45b;
                 }
 
             .ADD-Btn p {
@@ -89,6 +91,7 @@
             margin-bottom: 10px;
             margin-left: 20px;
             height: 30px;
+            font-weight: bold;
         }
 
         .icon {
@@ -97,7 +100,7 @@
             height: 30px;
             padding-left: 10px;
             border-radius: 50%;
-            background-color: #1623ae;
+            background-color: #a1a45b;
         }
 
         .pagination {
@@ -148,8 +151,8 @@
 
         th {
             height: 50px;
-            background: #ba68c8;
-            color: #fafafa;
+            background: #fbffdf;
+            color: black;
             text-transform: uppercase;
         }
 
@@ -164,9 +167,16 @@
             padding-bottom: 20px;
         }
 
-        tr:hover {
-            background-color: #ff006e;
+        tr {
+            color: #777;
+            font-weight: bold;
         }
+
+            tr:hover {
+                background-color: #777;
+                transition: 0.5s ease all;
+                color: white;
+            }
 
         @@media(max-width: 1024px) {
             .ADD-Btn {
