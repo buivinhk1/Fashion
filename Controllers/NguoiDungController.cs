@@ -55,7 +55,7 @@ namespace Fashion.Controllers
 
                     //sentmail
                     string subject = "VTA Shop";
-                    string mess = "Chào mừng "+kh.HoTen+ " đến với The Girl";
+                    string mess = "Chào mừng "+kh.HoTen+ " đến với The VTA Shop";
                     SendEmail(kh.Email,subject,mess);
                     return RedirectToAction("Login", "NguoiDung");
                 }
