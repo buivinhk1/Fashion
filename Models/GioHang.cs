@@ -21,8 +21,8 @@ namespace Fashion.Models
 
         public GioHang(int MaSP)
         {
-            masp = MaSP;
             SANPHAM sp = context.SANPHAMs.Single(s => s.MaSP == masp);
+            masp = MaSP;
             mota = sp.Mota;
             tensp = sp.TenSP;
             anhbia = sp.Anhbia;

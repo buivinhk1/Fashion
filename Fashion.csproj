@@ -226,6 +226,7 @@
     <None Include="Models\QLBanQuanAo.dbml.layout">
       <DependentUpon>QLBanQuanAo.dbml</DependentUpon>
     </None>
+    <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\ButtonTop.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
