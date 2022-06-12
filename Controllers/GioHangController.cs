@@ -18,7 +18,11 @@ namespace Fashion.Controllers
         {
             return View();
         }
-
+        public List<VANCHUYEN> GetVANCHUYENVMs()
+        {
+            var vanchuyen = new List<VANCHUYEN>();
+            return vanchuyen;
+        }
         public List<GioHang> LayGioHang()
         {
             List<GioHang> list = Session["GioHang"] as List<GioHang>;
@@ -29,7 +33,11 @@ namespace Fashion.Controllers
             }
             return list; 
         }
-
+        public ActionResult NVC(int id)
+        {
+            var list = data.VANCHUYENs.Where(n => n.MaVC == id);
+            return View(list.Single());
+        }
         public ActionResult ThemGioHang(int masp, string strUrl)
         {
 
@@ -81,6 +89,7 @@ namespace Fashion.Controllers
             }
             ViewBag.TongSoLuong = TongSoLuong();
             ViewBag.TongTien = TongTien();
+            ViewBag.TenVanChuyen = new SelectList(data.VANCHUYENs.ToList().OrderBy(n => n.MaVC), "MaVC", "TenVanChuyen");
             return View(gioHangs);
         }
 
@@ -140,12 +149,14 @@ namespace Fashion.Controllers
             List<GioHang> gioHangs = LayGioHang();
             ViewBag.TongSoLuong = TongSoLuong();
             ViewBag.TongTien = TongTien();
-
+            ViewBag.VC = new SelectList(data.VANCHUYENs.ToList().OrderBy(n => n.MaVC), "MaVC", "TenVanChuyen");
             return View(gioHangs);
         }
         [HttpPost]
-        public ActionResult DatHang(FormCollection collection)
+        public ActionResult DatHang(FormCollection collection, VANCHUYEN vc)
         {
+            ViewBag.VC = new SelectList(GetVANCHUYENVMs(), "MaVC", "TenVanChuyen");
+            SANPHAM sANPHAM = new SANPHAM();
             DONDATHANG dONDATHANG = new DONDATHANG();
             CHITIETDONTHANG CTDH = new CHITIETDONTHANG();
             KHACHHANG kh = (KHACHHANG)Session["Taikhoan"];
@@ -153,6 +164,7 @@ namespace Fashion.Controllers
             dONDATHANG.MaKH = kh.MaKH;
             dONDATHANG.Ngaydat = DateTime.Now;
             string DiaChi = collection["DiaChi"];
+            string nvc = collection["TenVanChuyen"];
             //dONDATHANG.Ngaygiao = DateTime.Parse(ngaygiao);
             dONDATHANG.TongTien = Decimal.Parse(TongTien().ToString());
             dONDATHANG.Tinhtranggiaohang = false;
@@ -162,6 +174,7 @@ namespace Fashion.Controllers
             foreach (var item in gioHangs)
             {
                 CHITIETDONTHANG CT = new CHITIETDONTHANG();
+                SANPHAM SP = new SANPHAM();
                 //DONDATHANG dONDATHANG = new DONDATHANG();
                 CT.MaDonHang = dONDATHANG.MaDonHang;
                 CT.MaSP = item.masp;
@@ -169,6 +182,7 @@ namespace Fashion.Controllers
                 CT.Dongia = (decimal)item.dongia;
                 CT.ThanhTien = (decimal)item.thanhtien;
                 dONDATHANG.DiaChi = DiaChi;
+  //              dONDATHANG.MaVC = Int32.Parse(nvc);
                 data.CHITIETDONTHANGs.InsertOnSubmit(CT);
             }
             data.SubmitChanges();
@@ -180,7 +194,8 @@ namespace Fashion.Controllers
                             "Ngày đặt hàng: " + String.Format("{0:dd/MM/yyyy}", dONDATHANG.Ngaydat) + "\n" +
                             //"Ngày giao: " + String.Format("{0:dd/MM/yyyy}", dONDATHANG.Ngaygiao) + "\n" +
                             "Tổng tiền: " + String.Format("{0:0,0}", dONDATHANG.TongTien) + " vnđ" + "\n" +
-                            "Dia chi: " + dONDATHANG.DiaChi + "\n";
+                            "Địa chỉ: " + dONDATHANG.DiaChi + "\n" +
+                            "Đơn vị vận chuyển: " + dONDATHANG.MaVC + "\n";
 
 
 

@@ -1,6 +1,5 @@
 ﻿@using Fashion.Models
-@model List<GioHang>
-
+@model List<GioHang> 
 @{
     ViewBag.Title = "Đơn Đặt Hàng";
     Layout = "~/Views/Layout/Fashion.cshtml";
@@ -105,7 +104,8 @@
 	<div class="content-giohang" style="margin-top: 100px;">
 		<h1 style="text-align:center">Thông Tin Đặt Hàng</h1>
 		@{
-			KHACHHANG kh = (KHACHHANG)Session["Taikhoan"];
+            KHACHHANG kh = (KHACHHANG)Session["Taikhoan"];
+
 		}
     <table align="center">
         @using (Html.BeginForm())
@@ -115,39 +115,41 @@
                 <td>Khách Hàng</td>
                 <td style="font-weight:bold">@kh.HoTen</td>
             </tr>
+
             <tr style="height:40px">
                 <td>Địa Chỉ</td>
                 <td style="font-weight:bold">@kh.DiachiKH</td>
             </tr>
+
             <tr style="height:40px">
                 <td>Số Điện Thoại</td>
                 <td style="font-weight:bold">@kh.DienthoaiKH</td>
             </tr>
+
             <tr style="height:40px">
                 <td>Ngày Đặt</td>
                 <td style="font-weight:bold">@DateTime.Now.ToShortDateString()</td>
             </tr>
+
             <tr style="height:40px">
-                <td>Điện Chỉ Nhận Hàng</td>
-                @*<td style="font-weight:bold"><input /></td>*@
-                @*<div class="col-md-10">
-                    @Html.EditorFor(model => model.diachi, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.diachi, "", new { @class = "text-danger" })
-                </div>*@
-            <td>
-                <div class="pom-agile">
-                    <input placeholder="Địa Chỉ" name="DiaChi" class="pass" type="text" required="">
-                    <span class="icon2"><i aria-hidden="true"></i></span>
-                </div>
-            </td>
-                
-            </tr>
-            /*<tr style="height:40px">
-                <td>Ngày Giao Hàng</td>
+                <td>Điạ Chỉ Nhận Hàng</td>
                 <td>
-                    <input required type="date" name="NgayGiao" />
+                    <div class="pom-agile">
+                        <input placeholder="Địa Chỉ" name="DiaChi" class="pass" type="text" required="">
+                        <span class="icon2"><i aria-hidden="true"></i></span>
+                    </div>
                 </td>
-            </tr>*/
+            </tr>
+
+            <tr style="height:40px">
+                <td>Đơn vị vận chuyển</td>
+                <td>
+                    <div class="col-md-10">
+                        @Html.DropDownList("VC")
+                    </div>
+                </td>
+            </tr>
+
             <tr style="height:40px;">
 
                 <td colspan="9" style="text-align: right; font-weight: bold">

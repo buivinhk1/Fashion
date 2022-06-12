@@ -87,7 +87,7 @@
 				<td><img src="~/Sản Phẩm/@item.anhbia" alt="Alternate Text" /></td>
 				@using (Html.BeginForm("CapNhatGioHang", "Giohang", new { @id = item.masp }))
 				{
-					<td><input type="number" min="1" name="Soluong" value="@item.soluong" style="background-color:white" /></td>
+					<td><input type="number" min="1" name="Soluong" value="@item.soluong" style="background-color:white" /></td> @*có min bằng 1 để ràng buộc đơn hàng phải có sl 1*@
 					<td>@String.Format("{0:0,0 }", item.dongia) vnđ</td>
 					<td>@String.Format("{0:0,0 }", item.thanhtien) vnđ</td>
 					<td><a class="btn btn-danger" style="background-color: #cecece; border-radius: 10px; font-weight: bold; border-color: #808080; color: black; " href="@Url.Action("XoaGioHang","GioHang", new {id = @item.masp})">Xóa</a></td>
