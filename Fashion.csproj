@@ -174,6 +174,9 @@
     <Content Include="Content\images\cart.jpg" />
     <Content Include="Content\images\dangnhap.jpg" />
     <Content Include="Content\images\image-removebg-preview %281%29.png" />
+    <Content Include="Content\images\VTA.png" />
+    <Content Include="Content\images\zyro-image %281%29.png" />
+    <Content Include="Content\images\zyro-image.png" />
     <Content Include="Content\Sign Up\ContactUs.css" />
     <Content Include="Content\style-admin.css" />
     <Content Include="Content\font-awesome.css" />

@@ -16,35 +16,23 @@ namespace Fashion.Controllers
         {
             return db.DONDATHANGs.OrderByDescending(s => s.MaKH).Take(count).ToList();
         }
-        [HttpGet]
-        public ActionResult History(int? page)
+
+        public ActionResult History()
         {
-            int pagesize = 10;
-            int pageNum = (page ?? 1);
-            var list = db.DONDATHANGs.OrderByDescending(s => s.MaKH).ToList();
-            return View(list.ToPagedList(pageNum, pagesize));
-        }
-        [HttpPost]
-        public ActionResult History(int page)
-        {
-            if (Session["User"] == null)
+            if (Session["Taikhoan"] == null)
             {
                 return RedirectToAction("Login", "NguoiDung");
             }
             else
             {
-                DONDATHANG type = db.DONDATHANGs.SingleOrDefault(n => n.MaKH == page);
-                if (type == null)
-                {
-                    Response.StatusCode = 404;
-                    return null;
-                }
+                KHACHHANG kh = (KHACHHANG)Session["Taikhoan"];
+                var type = (from t in db.DONDATHANGs where t.MaKH == kh.MaKH select t).ToList();
                 return View(type);
             }
         }
         public ActionResult HistoryDetails(int? id)
         {
-            if (Session["User"] == null)
+            if (Session["Taikhoan"] == null)
             {
                 return RedirectToAction("Login", "NguoiDung");
             }
@@ -58,7 +46,7 @@ namespace Fashion.Controllers
         [HttpPost]
         public ActionResult DeleteProductType(int id)
         {
-            if (Session["User"] == null)
+            if (Session["Taikhoan"] == null)
             {
                 return RedirectToAction("Login", "NguoiDung");
             }

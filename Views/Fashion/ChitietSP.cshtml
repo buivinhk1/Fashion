@@ -20,28 +20,19 @@
 <div class="container-Details">
     <div class="card">
         <div class="shoeBackground">
-            <a href="#" class="share"><i class="fas fa-share-alt"></i></a>
-
-            <img src="~/Sản Phẩm/@Model.Anhbia" alt="" class="shoe show" color="blue">
-            <img src="~/Sản Phẩm/@Model.Anhbia" alt="" class="shoe" color="red">
-            <img src="~/Sản Phẩm/@Model.Anhbia" alt="" class="shoe" color="green">
-            <img src="~/Sản Phẩm/@Model.Anhbia" alt="" class="shoe" color="orange">
-            <img src="~/Sản Phẩm/@Model.Anhbia" alt="" class="shoe" color="black">
-
+            <img src="~/Sản Phẩm/@Model.Anhbia" alt="" class="shoe show" style="width:85%">
         </div>
         <div class="info">
             <a class="big return" href="@Url.Action("AllSP","Fashion")"> X </a>
             <div class="shoeName">
                 <div>
                     <h1 class="big">@Model.TenSP</h1>
-
                 </div>
             </div>
             <div class="description">
                 <h3 class="title">Product Info</h3>
                 <p class="text">@Model.Mota</p>
-            </div>
-            
+            </div>            
             <div class="buy-price">
                 <a href="@Url.Action("ThemGioHang","GioHang",new {masp = @Model.MaSP, strUrl = Request.Url.ToString() })" class="buy"><i class="fas fa-shopping-cart"></i>Add to card</a>
                 <div class="price">

@@ -33,7 +33,6 @@
                     cursor: pointer;
                     display: none;
                 }
-
                     #bttop:hover {
                         background-color: #5f5f5e;
                     }
@@ -53,14 +52,12 @@
                         display: block;
                         margin: 10px
                     }
-
                         .Login a:hover {
                             background-color: #2b2b29;
                             color: white;
                             border-radius:10px;
                             transition:0.5s ease all;
                         }
-
         a {
             color: black;
         }
@@ -80,18 +77,12 @@
                     .footer .top-foot {
                         float: left;
                         color: #fff;
-                    }
-
-         
-
-
+                    }      
                         .footer .top-foot .category {
                             width: 100%;
                             float: left;
                             margin-right: 10px;
-                        }
-
-            
+                        }          
         @@media(max-width:1024px)
                 {
                     .footer .top-foot h2{
@@ -105,21 +96,12 @@
 </head>
 
 <body>
-   
-
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top colorr" role="navigation">
-        <div class="container" >
+        <a class="navbar-brand" href="@Url.Action("Index","Fashion")"> <img src="~/Content/images/zyro-image.png" style="width:80px; margin-left:100%"/></a>
+        <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a style="font-weight:bold; font-size:35px; color: burlywood;" class="navbar-brand" href="@Url.Action("Index","Fashion")"> Fashion VTA</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div style=" font-size: 18px; font-weight: bold;" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -131,7 +113,7 @@
                         <a href="@Url.Action("Contact","Fashion")" style="color:black">Liên Hệ</a>
                     </li>
 
-                </ul>               
+                </ul>
                 <div>
                     <ul class="Login">
                         @Html.Action("SoLuongGioHang", "GioHang")
@@ -143,10 +125,10 @@
                         <div class="Login"><a href="@Url.Action("Login","NguoiDung")">Đăng Nhập</a></div>
                     }
                     else
-                    { 
+                    {
                         <div class="dropdown Login">
                             <a id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                                Xin Chào @Session["User"]
+                                Hi @Session["User"]
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -154,11 +136,10 @@
                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("History","History")">Lich Sử</a></li>
                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("ChangePassword","NguoiDung")">Đổi mật khẩu</a></li>
                             </ul>
-                        </div>                      
+                        </div>
                     }
                 </div>
             </div>
-            
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
@@ -179,8 +160,7 @@
         </div>
         @RenderSection("Footer", false)
     </div>
-    <!-- /.container -->
-    
+    <!-- /.container -->   
     <!-- Footer -->
 	<div class="footer">
 		<div class="container">
@@ -194,7 +174,6 @@
 			</div>
 		</div>		
 	</div>
-
     <button id="bttop">
         <i class="fas fa-arrow-circle-up"></i>
     </button>
@@ -212,22 +191,18 @@
 
     <!-- Login Pop Up-->
     <script src="~/Scripts/Login_popup.js"></script>
-
     <script>
         const popup = document.querySelector('.popup');
         const close = document.querySelector('.close');
-
         //set time for pop up
         window.onload = function () {
             setTimeout(function () {
                 popup.style.display = "block";
             }, 5000)
         }
-
         close.addEventListener('click', () => {
             popup.style.display = "none";
         })
     </script>
-
 </body>
 </html>

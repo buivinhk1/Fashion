@@ -54,65 +54,6 @@
                 </h4>
                 <a href="@Url.Action("ThemGioHang","GioHang",new {masp = @item.MaSP, strUrl = Request.Url.ToString() })" class="buy">Thêm Vào Giỏ</a>
             </div>
-
-            <div class="ratings">
-                <p class="pull-right">12 reviews</p>
-                <p>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                </p>
-            </div>
         </div>
     </div>
 }
-@*<table class="table table-bordered table-striped">
-        <tr>
-            <th style="text-align:center;">
-                @Html.DisplayName("Tên Sản Phẩm")
-            </th>
-            <th>
-                @Html.DisplayName("Mô Tả")
-            </th>
-            <th style="text-align:center;">
-                @Html.DisplayName("Hình Sản Phẩm")
-            </th>
-            <th style="text-align:center;">
-                @Html.DisplayName("Giá")
-            </th>
-            <th>
-                @Html.DisplayName("Tồn Kho")
-            </th>
-
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td style="text-align:center;">
-                    @Html.DisplayFor(modelItem => item.TenSP)
-                </td>
-
-                <td >
-                    @Html.DisplayFor(modelItem => item.Mota)
-                </td>
-                <td style="text-align:center;">
-                    <img style="width:150px" src="/@Html.DisplayFor(modelItem => item.Anhbia)" alt="@item.TenSP" />
-                </td>
-                <td style="text-align:center;">
-                    @Html.DisplayFor(modelItem => item.Giaban) <strong>VNĐ</strong>
-                </td>
-                <td style="text-align:center;">
-                    @Html.DisplayFor(modelItem => item.Soluongton)
-                </td>
-
-                <td style="text-align:center; line-height:150px">
-                    <a href="@Url.Action("","" , new { id = item.MaSP})" class="btn btn-primary">Buy</a>
-                </td>
-            </tr>
-        }
-
-    </table>*@

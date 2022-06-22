@@ -107,21 +107,6 @@ namespace Fashion.Controllers
             string TK = collection["TaiKhoan"];
             string MK = collection["Password"];
 
-            //MD5 md5 = new MD5CryptoServiceProvider();
-
-            //md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(MK));
-
-            //byte[] bytedata = md5.Hash;
-
-            //StringBuilder builder = new StringBuilder();
-            //for (int i = 0; i < bytedata.Length; i++)
-            //{
-
-            //    builder.Append(bytedata[i].ToString("x2"));
-            //}
-
-            //string MaHoa = builder.ToString();
-
             KHACHHANG kh = data.KHACHHANGs.SingleOrDefault(a => a.Taikhoan == TK && a.Matkhau == MD5Hash(MK)); //MaHoa
             if (kh != null)
             {
@@ -186,9 +171,9 @@ namespace Fashion.Controllers
         public ActionResult ChangePassword(FormCollection collection)
         {
             KHACHHANG kh = (KHACHHANG)Session["Taikhoan"];
-           // KHACHHANG kh = data.KHACHHANGs.SingleOrDefault(a => a.Matkhau == MD5Hash(MK)); //MaHoa
+            // KHACHHANG kh = data.KHACHHANGs.SingleOrDefault(a => a.Matkhau == MD5Hash(MK)); //MaHoa
 
-           // var user = data.KHACHHANGs.SingleOrDefault(p => p.MaKH == p.MaKH);
+            var user = data.KHACHHANGs.SingleOrDefault(p => p.MaKH == kh.MaKH);
             var po = collection["passold"];
             var pn = collection["passnew"];
             var pa = collection["passagain"];
@@ -215,7 +200,7 @@ namespace Fashion.Controllers
                 }
                 else
                 {
-                    kh.Matkhau = MD5Hash(pn);
+                    user.Matkhau = MD5Hash(pn);
                     Session["User"] = kh.HoTen;
                     data.SubmitChanges();
                     ViewData["3"] = "Cập nhật thành công!";

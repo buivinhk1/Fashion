@@ -1,12 +1,10 @@
-﻿@using Fashion.Models;
-@using PagedList.Mvc;
-@model PagedList.PagedList<DONDATHANG>
+﻿@model IEnumerable<Fashion.Models.DONDATHANG>
 @{
     ViewBag.Title = "History";
     Layout = "~/Views/Layout/Fashion.cshtml";
 }
 
-<div class="container-xl history-container py-5 px-5" style="margin-top:10%; height: 500px">
+<div class="container-xl history-container py-5 px-5" style="margin-top:10%; height: 700px">
     <div class="table-content table-responsive">
         <h2 class="mb-5">Lịch sử mua hàng</h2>
         <table class="table text-center">
