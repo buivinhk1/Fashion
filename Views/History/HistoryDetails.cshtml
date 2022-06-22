@@ -1,9 +1,10 @@
 ﻿@model IEnumerable<Fashion.Models.CHITIETDONTHANG>
-
 @{
-    ViewBag.Title = "ChiTietDonDatHang";
-    Layout = "~/Views/Layout/Admin/_LayoutAdmin.cshtml";
+    ViewBag.Title = "HistoryDetails";
+    Layout = "~/Views/Layout/Fashion.cshtml";
 }
+
+<h2>HistoryDetails</h2>
 
 <table class="table">
     <tr>
@@ -22,50 +23,34 @@
         <th>
             @Html.DisplayName("Đơn Giá")
         </th>
-        <th>
-            @Html.DisplayName("Thành Tiền")
-        </th>
-        <th>
-            @Html.DisplayName("Địa Chỉ")
-        </th>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.DONDATHANG.KHACHHANG.HoTen)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.SANPHAM.TenSP)
-    </td>
-    <td>
-        <img src="~/Sản Phẩm/@Html.DisplayFor(modelItem => item.SANPHAM.Anhbia)" alt="Alternate Text" />
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Soluong)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Dongia)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ThanhTien)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.DONDATHANG.DiaChi)
-    </td>
-    <td>
-        <a href="@Url.Action("XoaChiTietDonDatHang","ChucNang", new { id = item.MaDonHang })">Xoá</a>
-    </td>
-</tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DONDATHANG.KHACHHANG.HoTen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SANPHAM.TenSP)
+            </td>
+            <td>
+                <img src="~/Sản Phẩm/@Html.DisplayFor(modelItem => item.SANPHAM.Anhbia)" alt="Alternate Text" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soluong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dongia)
+            </td>                
+        </tr>
     }
 
 </table>
 <div class="space" style="display:flex;justify-content:space-around">
-    <a class="return" href="@Url.Action("DonDatHang","ChucNang")">TRỞ VỀ</a>
-    @*@Html.ActionLink("Xoa chi tiet don dat hang","XoaTatCaChiTiet")*@
-    @*<a class="return" href="@Url.Action("XoaDonDatHang","ChucNang")">Xoá</a>*@
+    <a class="return" href="@Url.Action("Index","Fashion")">TRỞ VỀ</a>
+
 
 
 </div>
@@ -217,3 +202,4 @@
         }
     }
 </style>
+

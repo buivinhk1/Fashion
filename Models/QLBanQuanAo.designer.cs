@@ -30,9 +30,6 @@ namespace Fashion.Models
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertVANCHUYEN(VANCHUYEN instance);
-    partial void UpdateVANCHUYEN(VANCHUYEN instance);
-    partial void DeleteVANCHUYEN(VANCHUYEN instance);
     partial void InsertAdmin(Admin instance);
     partial void UpdateAdmin(Admin instance);
     partial void DeleteAdmin(Admin instance);
@@ -57,6 +54,9 @@ namespace Fashion.Models
     partial void InsertSANPHAM(SANPHAM instance);
     partial void UpdateSANPHAM(SANPHAM instance);
     partial void DeleteSANPHAM(SANPHAM instance);
+    partial void InsertVANCHUYEN(VANCHUYEN instance);
+    partial void UpdateVANCHUYEN(VANCHUYEN instance);
+    partial void DeleteVANCHUYEN(VANCHUYEN instance);
     #endregion
 		
 		public QLBanQuanAoDataContext() : 
@@ -87,14 +87,6 @@ namespace Fashion.Models
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<VANCHUYEN> VANCHUYENs
-		{
-			get
-			{
-				return this.GetTable<VANCHUYEN>();
-			}
 		}
 		
 		public System.Data.Linq.Table<Admin> Admins
@@ -160,119 +152,13 @@ namespace Fashion.Models
 				return this.GetTable<SANPHAM>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VANCHUYEN")]
-	public partial class VANCHUYEN : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _MaVC;
-		
-		private string _TenVanChuyen;
-		
-		private EntitySet<DONDATHANG> _DONDATHANGs;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMaVCChanging(int value);
-    partial void OnMaVCChanged();
-    partial void OnTenVanChuyenChanging(string value);
-    partial void OnTenVanChuyenChanged();
-    #endregion
-		
-		public VANCHUYEN()
-		{
-			this._DONDATHANGs = new EntitySet<DONDATHANG>(new Action<DONDATHANG>(this.attach_DONDATHANGs), new Action<DONDATHANG>(this.detach_DONDATHANGs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaVC", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int MaVC
+		public System.Data.Linq.Table<VANCHUYEN> VANCHUYENs
 		{
 			get
 			{
-				return this._MaVC;
+				return this.GetTable<VANCHUYEN>();
 			}
-			set
-			{
-				if ((this._MaVC != value))
-				{
-					this.OnMaVCChanging(value);
-					this.SendPropertyChanging();
-					this._MaVC = value;
-					this.SendPropertyChanged("MaVC");
-					this.OnMaVCChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenVanChuyen", DbType="NVarChar(128)")]
-		public string TenVanChuyen
-		{
-			get
-			{
-				return this._TenVanChuyen;
-			}
-			set
-			{
-				if ((this._TenVanChuyen != value))
-				{
-					this.OnTenVanChuyenChanging(value);
-					this.SendPropertyChanging();
-					this._TenVanChuyen = value;
-					this.SendPropertyChanged("TenVanChuyen");
-					this.OnTenVanChuyenChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VANCHUYEN_DONDATHANG", Storage="_DONDATHANGs", ThisKey="MaVC", OtherKey="MaVC")]
-		public EntitySet<DONDATHANG> DONDATHANGs
-		{
-			get
-			{
-				return this._DONDATHANGs;
-			}
-			set
-			{
-				this._DONDATHANGs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_DONDATHANGs(DONDATHANG entity)
-		{
-			this.SendPropertyChanging();
-			entity.VANCHUYEN = this;
-		}
-		
-		private void detach_DONDATHANGs(DONDATHANG entity)
-		{
-			this.SendPropertyChanging();
-			entity.VANCHUYEN = null;
 		}
 	}
 	
@@ -402,6 +288,8 @@ namespace Fashion.Models
 		
 		private System.Nullable<decimal> _ThanhTien;
 		
+		private string _DonViVanChuyen;
+		
 		private EntityRef<DONDATHANG> _DONDATHANG;
 		
 		private EntityRef<SANPHAM> _SANPHAM;
@@ -420,6 +308,8 @@ namespace Fashion.Models
     partial void OnDongiaChanged();
     partial void OnThanhTienChanging(System.Nullable<decimal> value);
     partial void OnThanhTienChanged();
+    partial void OnDonViVanChuyenChanging(string value);
+    partial void OnDonViVanChuyenChanged();
     #endregion
 		
 		public CHITIETDONTHANG()
@@ -533,6 +423,26 @@ namespace Fashion.Models
 					this._ThanhTien = value;
 					this.SendPropertyChanged("ThanhTien");
 					this.OnThanhTienChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DonViVanChuyen", DbType="NVarChar(50)")]
+		public string DonViVanChuyen
+		{
+			get
+			{
+				return this._DonViVanChuyen;
+			}
+			set
+			{
+				if ((this._DonViVanChuyen != value))
+				{
+					this.OnDonViVanChuyenChanging(value);
+					this.SendPropertyChanging();
+					this._DonViVanChuyen = value;
+					this.SendPropertyChanged("DonViVanChuyen");
+					this.OnDonViVanChuyenChanged();
 				}
 			}
 		}
@@ -652,9 +562,9 @@ namespace Fashion.Models
 		
 		private EntitySet<CHITIETDONTHANG> _CHITIETDONTHANGs;
 		
-		private EntityRef<VANCHUYEN> _VANCHUYEN;
-		
 		private EntityRef<KHACHHANG> _KHACHHANG;
+		
+		private EntityRef<VANCHUYEN> _VANCHUYEN;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -683,8 +593,8 @@ namespace Fashion.Models
 		public DONDATHANG()
 		{
 			this._CHITIETDONTHANGs = new EntitySet<CHITIETDONTHANG>(new Action<CHITIETDONTHANG>(this.attach_CHITIETDONTHANGs), new Action<CHITIETDONTHANG>(this.detach_CHITIETDONTHANGs));
-			this._VANCHUYEN = default(EntityRef<VANCHUYEN>);
 			this._KHACHHANG = default(EntityRef<KHACHHANG>);
+			this._VANCHUYEN = default(EntityRef<VANCHUYEN>);
 			OnCreated();
 		}
 		
@@ -889,40 +799,6 @@ namespace Fashion.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VANCHUYEN_DONDATHANG", Storage="_VANCHUYEN", ThisKey="MaVC", OtherKey="MaVC", IsForeignKey=true)]
-		public VANCHUYEN VANCHUYEN
-		{
-			get
-			{
-				return this._VANCHUYEN.Entity;
-			}
-			set
-			{
-				VANCHUYEN previousValue = this._VANCHUYEN.Entity;
-				if (((previousValue != value) 
-							|| (this._VANCHUYEN.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._VANCHUYEN.Entity = null;
-						previousValue.DONDATHANGs.Remove(this);
-					}
-					this._VANCHUYEN.Entity = value;
-					if ((value != null))
-					{
-						value.DONDATHANGs.Add(this);
-						this._MaVC = value.MaVC;
-					}
-					else
-					{
-						this._MaVC = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("VANCHUYEN");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KHACHHANG_DONDATHANG", Storage="_KHACHHANG", ThisKey="MaKH", OtherKey="MaKH", IsForeignKey=true)]
 		public KHACHHANG KHACHHANG
 		{
@@ -953,6 +829,40 @@ namespace Fashion.Models
 						this._MaKH = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("KHACHHANG");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VANCHUYEN_DONDATHANG", Storage="_VANCHUYEN", ThisKey="MaVC", OtherKey="MaVC", IsForeignKey=true)]
+		public VANCHUYEN VANCHUYEN
+		{
+			get
+			{
+				return this._VANCHUYEN.Entity;
+			}
+			set
+			{
+				VANCHUYEN previousValue = this._VANCHUYEN.Entity;
+				if (((previousValue != value) 
+							|| (this._VANCHUYEN.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._VANCHUYEN.Entity = null;
+						previousValue.DONDATHANGs.Remove(this);
+					}
+					this._VANCHUYEN.Entity = value;
+					if ((value != null))
+					{
+						value.DONDATHANGs.Add(this);
+						this._MaVC = value.MaVC;
+					}
+					else
+					{
+						this._MaVC = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("VANCHUYEN");
 				}
 			}
 		}
@@ -1260,7 +1170,7 @@ namespace Fashion.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Taikhoan", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Taikhoan", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
 		public string Taikhoan
 		{
 			get
@@ -2092,6 +2002,120 @@ namespace Fashion.Models
 		{
 			this.SendPropertyChanging();
 			entity.SANPHAM = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VANCHUYEN")]
+	public partial class VANCHUYEN : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _MaVC;
+		
+		private string _TenVanChuyen;
+		
+		private EntitySet<DONDATHANG> _DONDATHANGs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaVCChanging(int value);
+    partial void OnMaVCChanged();
+    partial void OnTenVanChuyenChanging(string value);
+    partial void OnTenVanChuyenChanged();
+    #endregion
+		
+		public VANCHUYEN()
+		{
+			this._DONDATHANGs = new EntitySet<DONDATHANG>(new Action<DONDATHANG>(this.attach_DONDATHANGs), new Action<DONDATHANG>(this.detach_DONDATHANGs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaVC", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int MaVC
+		{
+			get
+			{
+				return this._MaVC;
+			}
+			set
+			{
+				if ((this._MaVC != value))
+				{
+					this.OnMaVCChanging(value);
+					this.SendPropertyChanging();
+					this._MaVC = value;
+					this.SendPropertyChanged("MaVC");
+					this.OnMaVCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenVanChuyen", DbType="NVarChar(128)")]
+		public string TenVanChuyen
+		{
+			get
+			{
+				return this._TenVanChuyen;
+			}
+			set
+			{
+				if ((this._TenVanChuyen != value))
+				{
+					this.OnTenVanChuyenChanging(value);
+					this.SendPropertyChanging();
+					this._TenVanChuyen = value;
+					this.SendPropertyChanged("TenVanChuyen");
+					this.OnTenVanChuyenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VANCHUYEN_DONDATHANG", Storage="_DONDATHANGs", ThisKey="MaVC", OtherKey="MaVC")]
+		public EntitySet<DONDATHANG> DONDATHANGs
+		{
+			get
+			{
+				return this._DONDATHANGs;
+			}
+			set
+			{
+				this._DONDATHANGs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_DONDATHANGs(DONDATHANG entity)
+		{
+			this.SendPropertyChanging();
+			entity.VANCHUYEN = this;
+		}
+		
+		private void detach_DONDATHANGs(DONDATHANG entity)
+		{
+			this.SendPropertyChanging();
+			entity.VANCHUYEN = null;
 		}
 	}
 }

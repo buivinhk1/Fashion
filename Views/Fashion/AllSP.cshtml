@@ -36,7 +36,14 @@
                 <h4>
                     <a href="@Url.Action("ChitietSP","Fashion" , new { id = @item.MaSP})" style="color:black">@item.TenSP</a>
                 </h4>
-                <a href="@Url.Action("ThemGioHang","GioHang",new {masp = @item.MaSP, strUrl = Request.Url.ToString() })" class="buy">Thêm Vào Giỏ</a>
+                @if (Session["User"] != null)
+                {
+                    <a href="@Url.Action("ThemGioHang","GioHang",new {masp = @item.MaSP, strUrl = Request.Url.ToString() })" class="buy">Thêm Vào Giỏ</a>
+                }
+                else
+                {
+                    <a href="@Url.Action("Login", "NguoiDung")" class="buy">Bạn cần đăng nhập !</a>
+                }
             </div>     
         </div>
     </div>

@@ -197,9 +197,8 @@ namespace Fashion.Controllers
                             "Địa chỉ: " + dONDATHANG.DiaChi + "\n" +
                             "Đơn vị vận chuyển: " + dONDATHANG.MaVC + "\n";
 
-
-
             SendEmail(kh.Email,subject,mess);
+
 
 
             Session["GioHang"] = null;

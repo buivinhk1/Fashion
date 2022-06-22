@@ -1,12 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLBanQuanAo" Class="QLBanQuanAoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=VJNKDUCKBUILD\SQLEXPRESS;Initial Catalog=QLBanQuanAo;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QLBanQuanAoConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.VANCHUYEN" Member="VANCHUYENs">
-    <Type Name="VANCHUYEN">
-      <Column Name="MaVC" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TenVanChuyen" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
-      <Association Name="VANCHUYEN_DONDATHANG" Member="DONDATHANGs" ThisKey="MaVC" OtherKey="MaVC" Type="DONDATHANG" />
-    </Type>
-  </Table>
   <Table Name="dbo.Admin" Member="Admins">
     <Type Name="Admin">
       <Column Name="UserAdmin" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -21,6 +14,7 @@
       <Column Name="Soluong" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Dongia" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="ThanhTien" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="DonViVanChuyen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="DONDATHANG_CHITIETDONTHANG" Member="DONDATHANG" ThisKey="MaDonHang" OtherKey="MaDonHang" Type="DONDATHANG" IsForeignKey="true" />
       <Association Name="SANPHAM_CHITIETDONTHANG" Member="SANPHAM" ThisKey="MaSP" OtherKey="MaSP" Type="SANPHAM" IsForeignKey="true" />
     </Type>
@@ -37,8 +31,8 @@
       <Column Name="DiaChi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="MaVC" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="DONDATHANG_CHITIETDONTHANG" Member="CHITIETDONTHANGs" ThisKey="MaDonHang" OtherKey="MaDonHang" Type="CHITIETDONTHANG" />
-      <Association Name="VANCHUYEN_DONDATHANG" Member="VANCHUYEN" ThisKey="MaVC" OtherKey="MaVC" Type="VANCHUYEN" IsForeignKey="true" />
       <Association Name="KHACHHANG_DONDATHANG" Member="KHACHHANG" ThisKey="MaKH" OtherKey="MaKH" Type="KHACHHANG" IsForeignKey="true" />
+      <Association Name="VANCHUYEN_DONDATHANG" Member="VANCHUYEN" ThisKey="MaVC" OtherKey="MaVC" Type="VANCHUYEN" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.HoTro" Member="HoTros">
@@ -54,7 +48,7 @@
     <Type Name="KHACHHANG">
       <Column Name="MaKH" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="HoTen" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Taikhoan" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Taikhoan" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Matkhau" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="DiachiKH" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
@@ -94,6 +88,13 @@
       <Association Name="SANPHAM_CHITIETDONTHANG" Member="CHITIETDONTHANGs" ThisKey="MaSP" OtherKey="MaSP" Type="CHITIETDONTHANG" />
       <Association Name="Loaisanpham_SANPHAM" Member="Loaisanpham" ThisKey="MaloaiSP" OtherKey="MaloaiSP" Type="Loaisanpham" IsForeignKey="true" />
       <Association Name="NCC_SANPHAM" Member="NCC" ThisKey="MaNCC" OtherKey="MaNCC" Type="NCC" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VANCHUYEN" Member="VANCHUYENs">
+    <Type Name="VANCHUYEN">
+      <Column Name="MaVC" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenVanChuyen" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Association Name="VANCHUYEN_DONDATHANG" Member="DONDATHANGs" ThisKey="MaVC" OtherKey="MaVC" Type="DONDATHANG" />
     </Type>
   </Table>
 </Database>

@@ -156,6 +156,7 @@
     <Compile Include="Controllers\ChucNangController.cs" />
     <Compile Include="Controllers\FashionController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
+    <Compile Include="Controllers\HistoryController.cs" />
     <Compile Include="Controllers\NguoiDungController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -351,6 +352,9 @@
     <Content Include="Views\ChucNang\XoaKH.cshtml" />
     <Content Include="Views\ChucNang\XoaGopY.cshtml" />
     <Content Include="Views\ChucNang\XoaChiTietDonDatHang.cshtml" />
+    <Content Include="Views\History\History.cshtml" />
+    <Content Include="Views\NguoiDung\ChangePassword.cshtml" />
+    <Content Include="Views\History\HistoryDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -43,11 +43,18 @@
                 <img style="border-radius:15%; width: 100%; height: 293px; " alt="@item.TenSP" src="~/Sản Phẩm/@item.Anhbia">
             </a>
             <div class="caption" style="margin-bottom:10px">
-				<h4 class="pull-right" style="color:black"><strong>@String.Format("{0:0,0}", item.Giaban) vnđ</strong></h4>
+                <h4 class="pull-right" style="color:black"><strong>@String.Format("{0:0,0}", item.Giaban) vnđ</strong></h4>
                 <h4>
                     <a href="@Url.Action("ChitietSP","Fashion" , new { id = @item.MaSP})">@item.TenSP</a>
-                </h4>
-                <a href="@Url.Action("ThemGioHang","GioHang",new {masp = @item.MaSP, strUrl = Request.Url.ToString() })" class="buy">Thêm Vào Giỏ</a>
+                </h4>               
+                @if (Session["User"] != null)
+                {
+                    <a href="@Url.Action("ThemGioHang","GioHang",new {masp = @item.MaSP, strUrl = Request.Url.ToString() })" class="buy">Thêm Vào Giỏ</a>
+                }
+                else
+                {
+                    <a href="@Url.Action("Login", "NguoiDung")" class="buy">Bạn cần đăng nhập !</a>
+                }
             </div>
         </div>
     </div>

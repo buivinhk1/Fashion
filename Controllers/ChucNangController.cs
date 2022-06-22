@@ -626,9 +626,10 @@ namespace Fashion.Controllers
         [HttpGet]
         public ActionResult DonDatHang(int? page)
         {
+            string date = "01/01/2000";
             int pagesize = 5;
             int pageNum = (page ?? 1);
-            var GioHienTai =  DateTime.Today;
+            var GioHienTai =  DateTime.Parse(date);
             var list = context.DONDATHANGs.Where(s => s.Ngaydat >= GioHienTai).OrderByDescending(i => i.Ngaydat).ToList();
             return View(list.ToPagedList(pageNum, pagesize));
         }
