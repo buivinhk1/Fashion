@@ -48,6 +48,7 @@ namespace Fashion.Controllers
 
         public ActionResult AllSP(int ? page)
         {
+
             var allSP = from sp in context.SANPHAMs select sp;
 
             int pagesize = 5;

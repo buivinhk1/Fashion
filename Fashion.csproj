@@ -158,16 +158,23 @@
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HistoryController.cs" />
     <Compile Include="Controllers\NguoiDungController.cs" />
+    <Compile Include="Controllers\ThanhToanMOMOController.cs" />
+    <Compile Include="Controllers\VNPAYController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\GioHang.cs" />
+    <Compile Include="momo\MoMoSecurity.cs" />
+    <Compile Include="momo\PaymentRequest.cs" />
     <Compile Include="Models\QLBanQuanAo.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QLBanQuanAo.dbml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VNPAY\ChuyenDoi.cs" />
+    <Compile Include="VNPAY\SoSanh.cs" />
+    <Compile Include="VNPAY\XuLy.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\form-elements.css" />
@@ -358,9 +365,13 @@
     <Content Include="Views\History\History.cshtml" />
     <Content Include="Views\NguoiDung\ChangePassword.cshtml" />
     <Content Include="Views\History\HistoryDetails.cshtml" />
+    <Content Include="Views\GioHang\ConfirmPaymentClient.cshtml" />
+    <Content Include="Views\GioHang\PaymentConfirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ThanhToanMOMO\" />
+    <Folder Include="Views\VNPAY\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

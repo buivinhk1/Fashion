@@ -11,6 +11,7 @@ using Fashion.Models;
 using PagedList;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace Fashion.Controllers
 {
@@ -119,21 +120,30 @@ namespace Fashion.Controllers
         [HttpPost, ActionName("Xoasanpham")]
         public ActionResult XacNhanXoasanpham(int id)
         {
-            if (Session["TKAdmin"] == null)
+            try
             {
-                return RedirectToAction("Index", "Fashion");
-            }
-            else
-            {
-                SANPHAM sp = context.SANPHAMs.SingleOrDefault(n => n.MaSP == id);
-                ViewBag.MaSP = sp.MaSP;
-                if (sp == null)
+                if (Session["TKAdmin"] == null)
                 {
-                    Response.StatusCode = 404;
-                    return null;
+                    return RedirectToAction("Index", "Fashion");
                 }
-                context.SANPHAMs.DeleteOnSubmit(sp);
-                context.SubmitChanges();
+                else
+                {
+                    SANPHAM sp = context.SANPHAMs.SingleOrDefault(n => n.MaSP == id);
+                    ViewBag.MaSP = sp.MaSP;
+                    if (sp == null)
+                    {
+                        Response.StatusCode = 404;
+                        return null;
+                    }
+                    context.SANPHAMs.DeleteOnSubmit(sp);
+                    context.SubmitChanges();
+                    return RedirectToAction("DSsanpham");
+                }
+            }
+            catch
+            {
+                //ModelState.AddModelError("", "Sản Phẩm Này Đã Có Đơn Đặt không thể xoá");
+                ViewData["1"] = "Sản Phẩm Này Đã Có Đơn Đặt không thể xoá";
                 return RedirectToAction("DSsanpham");
             }
         }
@@ -780,22 +790,31 @@ namespace Fashion.Controllers
         [HttpPost, ActionName("XoaDonDatHang")]
         public ActionResult XacNhanXoaDonDatHang(int id)
         {
-            if (Session["TKAdmin"] == null)
+            try
             {
-                return RedirectToAction("Index", "Fashion");
-            }
-            else
-            {
-                DONDATHANG ncc = context.DONDATHANGs.Where(n => n.MaDonHang == id).FirstOrDefault();
-
-                ViewBag.MaDonHang = ncc.MaDonHang;
-                if (ncc == null)
+                if (Session["TKAdmin"] == null)
                 {
-                    Response.StatusCode = 404;
-                    return null;
+                    return RedirectToAction("Index", "Fashion");
                 }
-                context.DONDATHANGs.DeleteOnSubmit(ncc);
-                context.SubmitChanges();
+                else
+                {
+                    DONDATHANG ncc = context.DONDATHANGs.Where(n => n.MaDonHang == id).FirstOrDefault();
+
+                    ViewBag.MaDonHang = ncc.MaDonHang;
+                    if (ncc == null)
+                    {
+                        Response.StatusCode = 404;
+                        return null;
+                    }
+                    context.DONDATHANGs.DeleteOnSubmit(ncc);
+                    context.SubmitChanges();
+                    return RedirectToAction("DonDatHang");
+                }
+            }
+            catch
+            {
+                //ModelState.AddModelError("", "Sản Phẩm Này Đã Có Đơn Đặt không thể xoá");
+                ViewData["1"] = "Sản Phẩm Này Đã Có Đơn Đặt không thể xoá";
                 return RedirectToAction("DonDatHang");
             }
         }

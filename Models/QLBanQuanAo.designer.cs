@@ -1270,7 +1270,7 @@ namespace Fashion.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ngaysinh", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ngaysinh", DbType="Date")]
 		public System.Nullable<System.DateTime> Ngaysinh
 		{
 			get

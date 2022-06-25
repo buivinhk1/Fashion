@@ -172,12 +172,21 @@
             @String.Format("{0:dd/MM/yyyy}", Model.Ngaygiao)
         </dt>
     </dl>
-    @using (Html.BeginForm())
+
+    @if (ViewData["1"] != null)
     {
-        @Html.AntiForgeryToken()
-        <div class="form-actions no-color">
-            <div style="text-align:center"><a class="btn" href="@Url.Action("DonDatHang","ChucNang")"> Trở về</a></div>
-            <input type="submit" value="XÓA" class="btn btn-default" />
-        </div>
+        <h4 style="color: red;border-style:double; background: #eee; text-align: center;line-height:33px">@ViewData["1"]</h4>
+
     }
-</div>
+    else
+    {
+        using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-actions no-color">
+                <div style="text-align:center"><a class="btn" href="@Url.Action("DonDatHang", "ChucNang")"> Trở về</a></div>
+                <input type="submit" value="XÓA" class="btn btn-default" />
+            </div>
+        }
+    }
+    </div>

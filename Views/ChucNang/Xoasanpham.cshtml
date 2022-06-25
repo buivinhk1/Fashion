@@ -167,13 +167,22 @@
 
     </dl>
 
-    @using (Html.BeginForm())
+    @if (ViewData["1"] != null)
     {
-        @Html.AntiForgeryToken()
+        <h4 style="color: red;border-style:double; background: #eee; text-align: center;line-height:33px">@ViewData["1"]</h4>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Xóa" class="btn btn-default" />
-            <div style="text-align:center" ><a class="btn" href="@Url.Action("DSsanpham","ChucNang")"> Trở về</a></div>
-        </div>
     }
+    else
+    {
+        using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Xóa" class="btn btn-default" />
+                <div style="text-align:center"><a class="btn" href="@Url.Action("DSsanpham","ChucNang")"> Trở về</a></div>
+            </div>
+        }
+    }
+
 </div>
